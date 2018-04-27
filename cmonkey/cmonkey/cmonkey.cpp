@@ -1,7 +1,8 @@
 #include <iostream>
 #include "include\curl\curl.h"
+#include "SystemInfo.h"
 
-#define UNIQUEID "00"
+#define UNIQUEID SystemInfo::Instance().UniqueID()
 
 void sendEmail(const std::string& text, const std::string& jobid = "", const std::string* attachmment = nullptr, bool checkin = false) {
 	std::string sub_header = UNIQUEID;
@@ -13,7 +14,7 @@ void sendEmail(const std::string& text, const std::string& jobid = "", const std
 }
 
 int main() {
-	std::cout << "Hello world!";
+	std::cout << SystemInfo::Instance().UniqueID();
 	std::cin.ignore();
 	return 0;
 }
